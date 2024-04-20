@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function DropdownList() {
+export default function AddNote() {
     return (
         <div>
 

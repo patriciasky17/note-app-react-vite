@@ -12,10 +12,13 @@ export default function Tab(props) {
                 className="tab"
                 aria-label={title}
                 checked={isChecked}
-                onChange={onChange}  // Add onChange to handle tab switch
+                onChange={onChange} 
             />
-            <div role="tabpanel" className="tab-content rounded-box py-6 px-4">
-                {props.children}
+            <div role="tabpanel" className="tab-content py-6">
+                <div className="flex flex-wrap gap-8">
+                    {props.children}
+                </div>
+
             </div>
         </>
     );

@@ -2,47 +2,96 @@ import {useState} from 'react'
 import TabList from '../components/Tabs/TabList'
 import Tab from '../components/Tabs/Tab'
 import NoteCard from '../components/NoteCard'
+import DropdownButton from '../components/Button/DropdownButton'
+import FloatingButton from '../components/Button/FloatingButton'
+import { PlusIcon, UserIcon } from '@heroicons/react/24/solid'
+
+import KokichiChibiHappy from '../assets/Kokichi/Chibi/Kokichi_Oma_Happy.webp'
 
 export default function NotePage() {
     const [name, setName] = useState('Patricia')
     const [activeTab, setActiveTab] = useState(1);  // Initial active tab index
+    const dropdownItems = [
+        { label: 'Profile', onClick: () => console.log('Item 1 clicked'), isDanger: false, href: '/profile'},
+        { label: 'Log out', onClick: () => console.log('Item 2 clicked'), isDanger: true,  href: ''},
+    ];
 
     return (
-        <div className='px-8 py-4 flex flex-col gap-4'>
+        <div className='px-8 py-4 flex flex-col gap-4 min-h-full'>
             <div className="flex justify-between items-center">
-                <h1 className='text-2xl'>Catatan Milik {name}</h1>
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn m-1">Click</div>
-                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 2</a></li>
-                    </ul>
-                </div>
+                <h1 className='text-2xl'>{name}'s Note</h1>
+                <DropdownButton title={<><UserIcon className='w-4'/> {name}</>}items={dropdownItems} isCard={false}/>
             </div>
 
             <TabList>
                 <Tab
-                    title="Semua"
+                    title="All"
                     isChecked={activeTab === 1}
                     onChange={() => setActiveTab(1)}>
-                    Content of Tab 1
+
+                    <NoteCard 
+                        href="#" 
+                        title="Note Title" 
+                        description="This is a description of the note, So what i want to tell you is something that i shouldn't tell publicly and yeah that's all, thanks for wasting your time" 
+                        isUpdated={true}
+                        moodSticker={KokichiChibiHappy}
+                        alternativeImageDesc="Mood Sticker"
+                    />
+
+                    <NoteCard 
+                        href="#" 
+                        title="Note Title" 
+                        description="This is a description of the note, So what i want to tell you is something that i shouldn't tell publicly and yeah that's all, thanks for wasting your time" 
+                        isUpdated={true}
+                        moodSticker={KokichiChibiHappy}
+                        alternativeImageDesc="Mood Sticker"
+                    />
+
+                    <NoteCard 
+                        href="#" 
+                        title="Note Title" 
+                        description="This is a description of the note, So what i want to tell you is something that i shouldn't tell publicly and yeah that's all, thanks for wasting your time" 
+                        isUpdated={true}
+                        moodSticker={KokichiChibiHappy}
+                        alternativeImageDesc="Mood Sticker"
+                    />
+
+                    <NoteCard 
+                        href="#" 
+                        title="Note Title" 
+                        description="This is a description of the note, So what i want to tell you is something that i shouldn't tell publicly and yeah that's all, thanks for wasting your time" 
+                        isUpdated={true}
+                        moodSticker={KokichiChibiHappy}
+                        alternativeImageDesc="Mood Sticker"
+                    />
+
+                    <NoteCard 
+                        href="#" 
+                        title="Note Title" 
+                        description="This is a description of the note, So what i want to tell you is something that i shouldn't tell publicly and yeah that's all, thanks for wasting your time" 
+                        isUpdated={true}
+                        moodSticker={KokichiChibiHappy}
+                        alternativeImageDesc="Mood Sticker"
+                    />
                 </Tab>
+                
                 <Tab
-                    title="Pekerjaan"
+                    title="Work"
                     isChecked={activeTab === 2}
                     onChange={() => setActiveTab(2)}>
-                    Content of Tab 2
+                    There is no work note in here
                 </Tab>
+
                 <Tab
-                    title="Pribadi"
+                    title="Personal"
                     isChecked={activeTab === 3}
                     onChange={() => setActiveTab(3)}>
-                    Content of Tab 3
+                    There is no personal note in here
                 </Tab>
+
             </TabList>
-            
-            <NoteCard />
-                
+
+            <FloatingButton title="Add Note" icon=<PlusIcon className='w-6'/> />
         </div>
     )
 }
