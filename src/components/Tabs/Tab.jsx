@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 export default function Tab(props) {
     const { title, isChecked, onChange } = props;

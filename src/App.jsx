@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-import LoginPage from './pages/LoginPage'
+// import LoginPage from './pages/LoginPage'
 import NotePage from './pages/NotePage'
 import './App.css'
 import StarBackground from './background/StarBackground'

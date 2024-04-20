@@ -5,6 +5,7 @@ import NoteCard from '../components/NoteCard'
 import DropdownButton from '../components/Button/DropdownButton'
 import FloatingButton from '../components/Button/FloatingButton'
 import { PlusIcon, UserIcon } from '@heroicons/react/24/solid'
+import DeleteModal from '../components/Modal/DeleteModal'
 
 import KokichiChibiHappy from '../assets/Kokichi/Chibi/Kokichi_Oma_Happy.webp'
 
@@ -12,14 +13,14 @@ export default function NotePage() {
     const [name, setName] = useState('Patricia')
     const [activeTab, setActiveTab] = useState(1);  // Initial active tab index
     const dropdownItems = [
-        { label: 'Profile', onClick: () => console.log('Item 1 clicked'), isDanger: false, href: '/profile'},
-        { label: 'Log out', onClick: () => console.log('Item 2 clicked'), isDanger: true,  href: ''},
+        { label: 'Profile', isDanger: false, href: '/profile'},
+        { label: 'Log out', isDanger: true,  href: '/login'},
     ];
 
     return (
         <div className='px-8 py-4 flex flex-col gap-4 min-h-full'>
             <div className="flex justify-between items-center">
-                <h1 className='text-2xl'>{name}'s Note</h1>
+                <h1 className='text-2xl'>{name} Note</h1>
                 <DropdownButton title={<><UserIcon className='w-4'/> {name}</>}items={dropdownItems} isCard={false}/>
             </div>
 
@@ -92,6 +93,7 @@ export default function NotePage() {
             </TabList>
 
             <FloatingButton title="Add Note" icon=<PlusIcon className='w-6'/> />
+            <DeleteModal id="my_modal_5" title="Remove Note" message="Are you sure you want to remove this note?" />
         </div>
     )
 }

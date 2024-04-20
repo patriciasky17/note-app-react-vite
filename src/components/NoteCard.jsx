@@ -8,7 +8,7 @@ export default function NoteCard(props) {
 
     const dropdownItems = [
         { label: 'Edit Note', onClick: () => console.log('Item 1 clicked'), isDanger: false},
-        { label: 'Remove Note', onClick: () => console.log('Item 2 clicked'), isDanger: true },
+        { label: 'Remove Note', onClick: ()=>document.getElementById('my_modal_5').showModal(), isDanger: true },
     ];
     
     return (
