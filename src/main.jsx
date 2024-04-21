@@ -8,6 +8,8 @@ import {
 import './index.css'
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
+import AddNotePage from './pages/DetailNotePage/AddNotePage.jsx';
+import DetailNotePage from './pages/DetailNotePage/DetailNotePage.jsx';
 
 
 const router = createBrowserRouter([
@@ -22,8 +24,13 @@ const router = createBrowserRouter([
     errorElement: <NotFoundPage />,
   },
   {
+    path: "add-note",
+    element: <AddNotePage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
     path: "note",
-    element: <App />,
+    element: <DetailNotePage />,
     errorElement: <NotFoundPage />,
   },
   {
